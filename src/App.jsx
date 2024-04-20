@@ -86,7 +86,7 @@ const Momo = () => {
     api.velocity.set(direction.x, direction.y, direction.z)
   })
   return(
-    <mesh castShadow ref={ref}>
+    <mesh castShadow ref={ref} >
     {/* <Molang/> */}
     <Molango />
     {/* <cylinderGeometry /> */}

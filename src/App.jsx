@@ -72,12 +72,12 @@ const Ball = () =>{
   })
 		return (
 <mesh
-scale={0.1}
+scale={1}
 ref={ref}
 rotation={[-Math.PI / 2, 0, 0]}
 castShadow
 >
-  <planeGeometry attach="geometry" args={[200, 200]} />
+  <planeGeometry attach="geometry" args={[20, 20]} />
   <meshStandardMaterial />
 </mesh>
 		);
@@ -93,10 +93,10 @@ function App() {
         <directionalLight  intensity={1} position={[10,5,10]}/>
         <ambientLight  intensity={0.2}/>
         <Physics>
-        <Plane/>
+        {/* <Plane/> */}
         <Ball />
         <Momo />
-        {/* <Molang /> */}
+        <Molang />
         </Physics>
         <PerspectiveCamera />
         <OrbitControls  />

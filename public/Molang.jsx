@@ -17,7 +17,7 @@ export default function Model (props){
 	const ColoredMesh = ({ geometry, material, position, rotation, scale, color }) => {
 		return (
 			<mesh geometry={geometry} material={material} position={position} rotation={rotation} scale={scale} >
-				<meshBasicMaterial color={hovered? "orange":"red"} wireframe/>
+				<meshBasicMaterial color={hovered? "orange":"red"}/>
 			</mesh>
 		);
 	};

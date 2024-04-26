@@ -1,6 +1,6 @@
 import { useRef, useState,Suspense, useEffect } from 'react'
 import './App.css'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { CameraControls, Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import Molang from '../public/Molang'
 import Molango from '../public/Molango'
@@ -67,7 +67,7 @@ const Ball = () =>{
       type: 'Static',
 		}));
 	  useFrame(({pointer})=> {
-    api.rotation.set(-Math.PI/2+ pointer.y,0+pointer.x,0)
+    api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
     console.log(api.rotation);
   })
 		return (
@@ -83,17 +83,41 @@ castShadow
 		);
 	};
 
+  const ResizeHandler = () => {
+  const { camera, gl } = useThree();
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Update the aspect ratio
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      // Update the size of the renderer
+      gl.setSize(window.innerWidth, window.innerHeight);
+    };
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [camera, gl]);
+
+  return null;
+};
+
 
 function App() {
   return (
     <div>
       <Canvas camera={{ position: [10, 10, 20] }}>
         <Suspense fallback={null}>
-
+        <ResizeHandler />
         <directionalLight  intensity={1} position={[10,5,10]}/>
         <ambientLight  intensity={0.2}/>
         <Physics>
-        {/* <Plane/> */}
+        <Plane/>
         <Ball />
         <Momo />
         <Molang />

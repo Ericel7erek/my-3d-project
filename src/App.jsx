@@ -26,13 +26,13 @@ const Momo = () => {
   const [ref] = useCylinder(()=> ({
     mass: 10,
     position: [0,5,0],
-    args: [1,1,1],
+    args: [1,1,5],
   }))
 
   return(
     <mesh castShadow ref={ref}>
-    {/* <Molango /> */}
-    <cylinderGeometry />
+    <Molango />
+    {/* <cylinderGeometry /> */}
     <meshStandardMaterial color={"red"} />
     </mesh>
   )
@@ -77,7 +77,7 @@ ref={ref}
 rotation={[-Math.PI / 2, 0, 0]}
 castShadow
 >
-  <planeGeometry attach="geometry" args={[20, 20]} />
+  <planeGeometry attach="geometry" args={[50, 50]} />
   <meshStandardMaterial />
 </mesh>
 		);

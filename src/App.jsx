@@ -30,6 +30,7 @@ const Momo = () => {
   }))
 	  useFrame(({pointer})=> {
     api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
+
   })
   return(
     <mesh castShadow ref={ref}>

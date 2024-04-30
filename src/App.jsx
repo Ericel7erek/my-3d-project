@@ -7,6 +7,43 @@ import Molango from '../public/Molango'
 import Home from '../public/Home'
 import { usePlane, Physics, useCylinder, useBox } from '@react-three/cannon'
 import * as THREE from 'three'
+import { Vector3 } from 'three'
+
+const usePersonControls = () => {
+  const keys = {
+    KeyW: 'forward',
+    KeyS: 'backward',
+    KeyA: 'left',
+    KeyD: 'right',
+    Space: 'jump',
+  }
+
+  const moveFieldByKey = (key) => keys[key]
+
+  const [movement, setMovement] = useState({
+    forward: false,
+    backward: false,
+    left: false,
+    right: false,
+    jump: false,
+  })
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: true }))
+    }
+    const handleKeyUp = (e) => {
+      setMovement((m) => ({ ...m, [moveFieldByKey(e.code)]: false }))
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('keyup', handleKeyUp)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('keyup', handleKeyUp)
+    }
+  }, [])
+  return movement
+}
 
 const Cube = ({position, size, color}) =>{
   // const ref = useRef()
@@ -23,14 +60,28 @@ const Cube = ({position, size, color}) =>{
 )}
 
 const Momo = () => {
+  const { forward, backward, left, right, jump } = usePersonControls()
   const [ref,api] = useCylinder(()=> ({
     mass: 10,
     position: [0,5,0],
     args: [1,1,5],
+    type: 'Dynamic'
   }))
-	  useFrame(({pointer})=> {
-    api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
+	  useFrame(({/*pointer*/})=> {
+    // api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
+    // Calculating front/side movement ...
+    let frontVector = new Vector3(0,0,0);
+    let sideVector = new Vector3(0,0,0);
+    let direction = new Vector3(0,0,0);
 
+    frontVector.set(0, 0, Number(forward) - Number(backward))
+    sideVector.set(Number(right) - Number(left), 0, 0)
+    direction
+      .subVectors(frontVector, sideVector)
+      .normalize()
+      .multiplyScalar(1)
+
+    api.velocity.set(direction.x, 0, direction.z)
   })
   return(
     <mesh castShadow ref={ref}>

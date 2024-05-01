@@ -23,12 +23,15 @@ const Cube = ({position, size, color}) =>{
 )}
 
 const Momo = () => {
-  const [ref] = useCylinder(()=> ({
+  const [ref,api] = useCylinder(()=> ({
     mass: 10,
     position: [0,5,0],
     args: [1,1,5],
   }))
+	  useFrame(({pointer})=> {
+    api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
 
+  })
   return(
     <mesh castShadow ref={ref}>
     <Molango />
@@ -66,10 +69,10 @@ const Ball = () =>{
 			rotation: [-Math.PI / 2, 0, 0],
       type: 'Static',
 		}));
-	  useFrame(({pointer})=> {
-    api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
-    console.log(api.rotation);
-  })
+	//   useFrame(({pointer})=> {
+  //   api.position.set(0+ pointer.x*20,0+pointer.y*20,0)
+  //   console.log(api.rotation);
+  // })
 		return (
 <mesh
 scale={1}

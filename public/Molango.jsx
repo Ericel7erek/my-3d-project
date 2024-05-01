@@ -16,14 +16,14 @@
         <group scale={0.01} >
                 <group position={[1.102, 11.408, 23.19]}>
             <group position={[-14.18, 77.124, 147.576]} rotation={[-0.22, 0, 0]} scale={0.512}>
-            <ColoredMesh geometry={nodes.Cylinder.geometry} material={nodes.Cylinder.material} position={[-24.801, 21.542, 0.388]} rotation={[0.001, -0.019, 0.085]} />
-            <ColoredMesh geometry={nodes.Torus_2.geometry} material={nodes.Torus_2.material} position={[-47.513, 17.383, 0.003]} rotation={[0.001, -0.019, 2.198]} />
-            <ColoredMesh geometry={nodes.Torus.geometry} material={nodes.Torus.material} position={[-1.885, 20.987, 0.867]} rotation={[0.001, -0.019, 2.198]} />
+            <ColoredMesh geometry={nodes.Cylinder.geometry} material={nodes.Cylinder.material} position={[-24.801, 21.542, 0.388]} rotation={[0.001, -0.019, 0.085]}  />
+            <ColoredMesh geometry={nodes.Torus_2.geometry} material={nodes.Torus_2.material} position={[-47.513, 17.383, 0.003]} rotation={[0.001, -0.019, 2.198]}  />
+            <ColoredMesh geometry={nodes.Torus.geometry} material={nodes.Torus.material} position={[-1.885, 20.987, 0.867]} rotation={[0.001, -0.019, 2.198]}  />
             </group>
-            <ColoredMesh geometry={nodes.Body.geometry} material={nodes.Body.material} position={[-19.443, -31.195, -23.267]} rotation={[0, 0, 0.087]} />
-            <ColoredMesh geometry={nodes.Sphere_3.geometry} material={nodes.Sphere_3.material} position={[51.112, 82.724, 117.209]} rotation={[0, 0, 0.087]} />
-            <ColoredMesh geometry={nodes.Sphere_2.geometry} material={nodes.Sphere_2.material} position={[-112.815, 68.478, 117.209]} rotation={[0, 0, 0.087]} />
-            <ColoredMesh geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} position={[-8.102, -165.449, -186.909]} rotation={[-Math.PI, 0, -Math.PI]} />
+            <ColoredMesh geometry={nodes.Body.geometry} material={nodes.Body.material} position={[-19.443, -31.195, -23.267]} rotation={[0, 0, 0.087]} color={"pink"}/>
+            <ColoredMesh geometry={nodes.Sphere_3.geometry} material={nodes.Sphere_3.material} position={[51.112, 82.724, 117.209]} rotation={[0, 0, 0.087]} color={"black"}/>
+            <ColoredMesh geometry={nodes.Sphere_2.geometry} material={nodes.Sphere_2.material} position={[-112.815, 68.478, 117.209]} rotation={[0, 0, 0.087]} color={"black"}/>
+            <ColoredMesh geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} position={[-8.102, -165.449, -186.909]} rotation={[-Math.PI, 0, -Math.PI]} color={"black"}/>
             <ColoredMesh geometry={nodes.Cube_5.geometry} material={nodes.Cube_5.material} position={[107.53, -78.294, 146.635]} rotation={[1.672, 0, -0.157]} scale={0.797} />
             <ColoredMesh geometry={nodes.Cube_7.geometry} material={nodes.Cube_7.material} position={[71.21, -197.724, 36.959]} rotation={[3.024, -0.035, -0.453]} scale={0.797} />
             <ColoredMesh geometry={nodes.Cube_6.geometry} material={nodes.Cube_6.material} position={[-101.618, -197.144, 41.887]} rotation={[3.024, -0.035, 0.129]} scale={0.797} />

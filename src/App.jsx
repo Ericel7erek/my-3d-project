@@ -9,11 +9,11 @@ import { usePlane, Physics, useCylinder, useBox } from '@react-three/cannon'
 import * as THREE from 'three'
 
 const Cube = ({position, size, color}) =>{
-  const ref = useRef()
+  // const ref = useRef()
   // useFrame((state, delta) => {
   //   ref.current.rotation.x += delta
-  //   ref.current.rotation.y += delta * 2
-  //   ref.current.rotation.z = Math.sin(state.clock.elapsedTime) * 2
+    // ref.current.rotation.y += delta * 2
+    // ref.current.rotation.z = Math.sin(state.clock.elapsedTime) * 2
   // })
   return(
       <mesh position={position} ref={ref}>
@@ -118,6 +118,7 @@ function App() {
         <ambientLight  intensity={0.2}/>
         <Physics>
         <Plane/>
+        {/* <Cube /> */}
         <Ball />
         <Momo />
         <Molang />

@@ -62,9 +62,9 @@ const Cube = ({position, size, color}) =>{
 const Momo = () => {
   const { forward, backward, left, right, jump } = usePersonControls()
   const [ref,api] = useCylinder(()=> ({
-    mass: 10,
-    position: [0,5,0],
-    args: [1,1,5],
+    mass: 100,
+    position: [0,0,0],
+    args: [1,1,2],
     type: 'Dynamic'
   }))
 	  useFrame(({/*pointer*/})=> {
@@ -72,19 +72,22 @@ const Momo = () => {
     // Calculating front/side movement ...
     let frontVector = new Vector3(0,0,0);
     let sideVector = new Vector3(0,0,0);
+    let upVector = new Vector3(0,0,0)
     let direction = new Vector3(0,0,0);
 
     frontVector.set(0, 0, Number(forward) - Number(backward))
     sideVector.set(Number(right) - Number(left), 0, 0)
+    upVector.set(0,Number(jump),0)
     direction
       .subVectors(frontVector, sideVector)
       .normalize()
-      .multiplyScalar(1)
+      .multiplyScalar(10)
 
-    api.velocity.set(direction.x, 0, direction.z)
+    api.velocity.set(direction.x, direction.y, direction.z)
   })
   return(
     <mesh castShadow ref={ref}>
+    {/* <Molang/> */}
     <Molango />
     {/* <cylinderGeometry /> */}
     <meshStandardMaterial color={"red"} />

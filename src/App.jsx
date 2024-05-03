@@ -46,7 +46,7 @@ const usePersonControls = () => {
 }
 
 const Cube = ({position, size, color}) =>{
-  // const ref = useRef()
+  const ref = useRef()
   // useFrame((state, delta) => {
   //   ref.current.rotation.x += delta
     // ref.current.rotation.y += delta * 2

@@ -61,7 +61,7 @@ const Cube = ({position, size, color}) =>{
 
 const Momo = () => {
   const { forward, backward, left, right, jump } = usePersonControls()
-  const [ref,api] = useCylinder(()=> ({
+  const [ref,api] = useBox(()=> ({
     mass: 100,
     position: [0,0,0],
     args: [1,1,2],
@@ -88,8 +88,8 @@ const Momo = () => {
   return(
     <mesh castShadow ref={ref} >
     {/* <Molang/> */}
-    <Molango />
-    {/* <cylinderGeometry /> */}
+    {/* <Molango /> */}
+    <boxGeometry />
     <meshStandardMaterial color={"red"} />
     </mesh>
   )

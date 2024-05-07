@@ -175,7 +175,7 @@ function App() {
         <ambientLight  intensity={0.2}/>
         <Physics>
         <Plane/>
-        {/* <Cube /> */}
+        <Cube />
         <Ball />
         <Momo />
         <Molang />

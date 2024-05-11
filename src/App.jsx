@@ -74,7 +74,6 @@ const Momo = () => {
     let sideVector = new Vector3(0,0,0);
     let upVector = new Vector3(0,0,0)
     let direction = new Vector3(0,0,0);
-
     frontVector.set(0, 0, Number(forward) - Number(backward))
     sideVector.set(Number(right) - Number(left), 0, 0)
     upVector.set(0,Number(jump),0)
@@ -102,6 +101,9 @@ const Ball = () =>{
       position:[0,10,0],
       args:[2,2,2]
     }))
+    const jump=()=>{
+      // ref.current.  ({x:4, y:4,z:0})
+    }
   // const ref = useRef()
   // useFrame((state, delta) => {
   //   ref.current.rotation.x += delta
@@ -110,7 +112,7 @@ const Ball = () =>{
   //   console.log(state.clock.elapsedTime);
   // })
   return(
-      <mesh castShadow ref={ref}>
+      <mesh castShadow ref={ref} onClick={jump}>
       <sphereGeometry />
       <meshPhysicalMaterial color={"green"}/>
       </mesh>
@@ -175,7 +177,7 @@ function App() {
         <ambientLight  intensity={0.2}/>
         <Physics>
         <Plane/>
-        <Cube />
+        {/* <Cube /> */}
         <Ball />
         <Momo />
         <Molang />
